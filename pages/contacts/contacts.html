@@ -5,55 +5,57 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../styles/style.css" />
     <title>Document</title>
 </head>
 <body>
     <header>
         <img src="/assets/images/logo.png" alt="Логотип" />
         <menu>
-            <ul>
-                <li><a href="../../index.html">Главная</a></li>
-                <li><a>Контакты</a></li>
+            <ul class="menu-list">
+                <li class="menu-item"><a href="../../index.html">Главная</a></li>
+                <li class="menu-item current-page"><a>Контакты</a></li>
             </ul>
         </menu>
     </header>
     <main>
-        <h2>Contact Us</h2>
-        <p>We answer on your message</p>
+        <h2 class="h2-style">Contact Us</h2>
+        <p class="p-style">We answer on your message</p>
         <img src="../../assets/images/contacts.png" alt="contacts picture">
-        <h4>Address</h4>
-        <p>Tyumen, Perekopskaya street, 15a</p>
-        <h4>Phone</h4>
+        <h4 class="h4-style">Address</h4>
+        <p class="p-style">Tyumen, Perekopskaya street, 15a</p>
+        <h4 class="h4-style">Phone</h4>
         <ul>
-            <li>+0-000-000-00-00</li>
-            <li>+1-111-111-11-11</li>
+            <li><p class="p-style">+0-000-000-00-00</p></li>
+            <li><p class="p-style">+1-111-111-11-11</p></li>
         </ul>
-        <h4>Online service</h4>
+        <h4 class="h4-style">Online service</h4>
         <ul>
-            <li>000000@yuoup.com</li>
-            <li>utmn.ru</li>
+            <li><p class="p-style">000000@yuoup.com</p></li>
+            <li><p class="p-style">utmn.ru</p></li>
         </ul>
-        <p>Tyumen, Perekopskaya street, 17a, +0-000-000-00-01</p>
-        <h4>Send us message</h4>
+        <p class="p-style">Tyumen, Perekopskaya street, 17a, +0-000-000-00-01</p>
+        <h4 class="h4-style">Send us message</h4>
         <form method="post">
-            <input id="full-name" type="text" name="full-name" />
             <label for="full-name">Full name</label>
-            <input id="email" type="email" name="email" />
+            <input id="full-name" class="input-style" type="text" name="full-name" />
             <label for="email">Email</label>
-            <textarea id="message" name="message"></textarea>
+            <input id="email" class="input-style"  type="email" name="email" />
             <label for="message">Full name</label>
-            <input type="submit" title="Submit" />
+            <textarea id="message" class="input-style"  name="message"></textarea>
+            <input type="submit" class="submit-style" title="Submit" />
         </form>
     </main>
+    <hr>
     <footer>
-        <h3>I'm footer</h3>
-        <p>Nice to meet you</p>
+        <h3 class="h3-style">I'm footer</h3>
+        <p class="p-style">Nice to meet you</p>
         <hr>
         <ul>
-            <li>Contacts:</li>
-            <li>+0-000-000-00-00</li>
-            <li>000000@yuoup.com</li>
+            <li><p class="p-style">Contacts:</p></li>
+            <li><p class="p-style">+0-000-000-00-00</p></li>
+            <li><p class="p-style">000000@yuoup.com</p></li>
         </ul>
-        <p>«Все права защищены»</p>
+        <p class="p-style">«Все права защищены»</p>
     </footer>
 </body>
