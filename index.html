@@ -5,39 +5,322 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="styles/style.css" />
     <title>Document</title>
 </head>
 <body>
     <header>
-        <img src="/assets/images/logo.png" alt="Логотип" />
-        <menu>
-            <ul class="menu-list">
-                <li class="menu-item current-page"><a>Главная</a></li>
-                <li class="menu-item"><a href="pages/contacts/contacts.html">Контакты</a></li>
+        <div class="nav-menu">
+            <h1>IT WEBSITE</h1>
+            <ul>
+                <li>Services</li>
+                <li>Media</li>
+                <li>Cases</li>
+                <li>FAQ</li>
+                <li>Contacts</li>
             </ul>
-        </menu>
+            <ul>
+                <li><img alt="phone image"> +7 (111) 111 11 11</li>
+                <li>+7 (111) 111 11 11</li>
+                <li><img alt="email image"> itcompany@mail.com</li>
+            </ul>
+        </div>
     </header>
+    <hr>
     <main>
-        <h1 class="h1-style">Music Center</h1>
-        <p class="p-style">Hello everyone!</p>
-        <h3 class="h3-style">We love music</h3>
-        <h4 class="h4-style">We really love music</h4>
-        <p class="p-style">This is not a joke!</p>
-        <h3 class="h3-style">Hello music</h3>
-        <p class="p-style">This is not a joke!</p>
+        <div class="main-info">
+            <div class="main-info__description">
+                <h1>Development of mobile applications and web services of any complexity</h1>
+                <p>We create mobile applications for iOS, Android that transfer your business to mobile applications of your customers' devices</p>
+            </div>
+            <div class="main-info__contact">
+                <h2>Leave your contacts and we will call you back within 30 minutes</h2>
+                <form class="contact-form" method="post">
+                    <label for="contact-form__phone">Phone number</label>
+                    <input id="contact-form__phone"type="tel" />
+                    <label for="contact-form__full-name">Phone number</label>
+                    <input id="contact-form__full-name"type="text" />
+                    <input id="contact-form__submit" type="submit" value="Get consultation" />
+                </form>
+            </div>
+        </div>
+        <hr>
+        <div class="cycle-info">
+            <div class="cycle-info__description">
+                <h1>Full development cycle</h1>
+                <p>We use proven technologies</p>
+                <h3>Web</h3>
+                <p class="enumeration">PHP / Javascript / Node.JS / Web Socket / Socket.io / Vue.js / Nuxt / MySQL / Laravel / GO lang / django / Python</p>
+                <h3>Mobile</h3>
+                <p class="enumeration">Swift / Kotlin / Alamofire / Firebase / CoreData / Room / Realm / Coroutine / RxJava / RxSwift / Unit Test / Navigation</p>
+            </div>
+            <div class="cycle-info__list">
+                <ul>
+                    <li>iOS development</li>
+                    <li>Android development</li>
+                    <li>Web development</li>
+                    <li>UI/UX design</li>
+                    <li>Testing</li>
+                    <li>Launch</li>
+                    <li>IT consulting</li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <div class="projects-info">
+            <h1>Developed more than 100 projects in 15 industries</h1>
+            <div class="projects-list">
+                <div class="projects-list__item">
+                    <img alt="social image">
+                    <p>Social Media</p>
+                </div>
+                <div class="projects-list__item">
+                    <img alt="fitness image">
+                    <p>Fitness and sport</p>
+                </div>
+                <div class="projects-list__item">
+                    <img alt="bank image">
+                    <p>Bank</p>
+                </div>
+                <div class="projects-list__item">
+                    <img alt="construction image">
+                    <p>Construction</p>
+                </div>
+                <div class="projects-list__item">
+                    <img alt="game image">
+                    <p>Game projects</p>
+                </div>
+                <div class="projects-list__item">
+                    <img alt="education image">
+                    <p>Education</p>
+                </div>
+                <div class="projects-list__item">
+                    <img alt="auto image">
+                    <p>Auto, transport</p>
+                </div>
+                <div class="projects-list__item">
+                    <img alt="medicine image">
+                    <p>Medicine, health</p>
+                </div>
+                <div class="projects-list__item">
+                    <img alt="food image">
+                    <p>Restaurants, food delivery</p>
+                </div>
+                <div class="projects-list__item">
+                    <img alt="marketplaces image">
+                    <p>Marketplaces</p>
+                </div>
+                <div class="projects-list__item">
+                    <img alt="ar image">
+                    <p>AR technology</p>
+                </div>
+                <div class="projects-list__item">
+                    <img alt="TV image">
+                    <p>TV series</p>
+                </div>
+                <div class="projects-list__item">
+                    <img alt="startups image">
+                    <p>Startups</p>
+                </div>
+                <div class="projects-list__item">
+                    <img alt="religion image">
+                    <p>Religion</p>
+                </div>
+                <div class="projects-list__item">
+                    <img alt="courses image">
+                    <p>Online courses</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="project-examples">
+            <h1>Projects we are pound </h1>
+            <p>Our software development company is truly proud of the wonderful clients we have worked with. We enjoy a long-term partnership</p>
+            <div class="project-nav">
+                <div class="project-nav__item">
+                    <p>I-teka</p>
+                </div>
+                <div class="project-nav__item">
+                    <p>Dauletten</p>
+                </div>
+                <div class="project-nav__item">
+                    <p>Guru Bosch</p>
+                </div>
+                <div class="project-nav__item">
+                    <p>Santo</p>
+                </div>
+                <div class="project-nav__item">
+                    <p>Home Credit Bank</p>
+                </div>
+                <div class="project-nav__item">
+                    <p>Bi Partners</p>
+                </div>
+                <div class="project-nav__item">
+                    <p>Europharma</p>
+                </div>
+                <button>View 100 more projects</button>
+            </div>
+            <div class="description">
+                <h1>I-teka</h1>
+                <p>The application is designed to search for drugs by availability in pharmacies in cities. During quarantine, the application helped many people, which gives more values.</p>
+                <p class="enumeration">Business analysis / iOS / Android / QA / UI/UX Design</p>
+                <img alt="locality">
+                <p>Kazakhstan</p>
+                <img alt="sphere">
+                <p>Medicine</p>
+                <div class="description__stats">
+                    <h2>400%</h2>
+                    <p class="stat-name">User Growth</p>
+                </div>
+                <div class="description__stats">
+                    <h2>+ 200 000</h2>
+                    <p class="stat-name">Active Users</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="project-discuss">
+            <div class="project-discuss__information">
+                <h1 class="white-text">Let's discuss Your project</h1>
+                <p class="white-text">Let's figure out how to create an effective application, its cost and terms of its development</p>
+            </div>
+            <div class="project-discuss__contact">
+                <form class="discuss-form">
+                    <label for="discuss-form__phone">Best phone number</label>
+                    <input id="discuss-form__phone" type="tel" name="phone"/>
+                    <label for="discuss-form__name">Full name</label>
+                    <input id="discuss-form__name" type="text" name="fullName"/>
+                    <input type="submit" value="Discuss the project"/>
+                </form>
+            </div>
+        </div>
+        <hr>
+        <div class="development-stages">
+            <h1>Application Development Stages</h1>
+            <div class="development-stages__stage">
+                <img alt="analysis image">
+                <h2>Analysis</h2>
+                <p>We write technical specifications for development, taking into account the business processes and technologies of the customer and the needs of users.</p>
+            </div>
+            <div class="development-stages__stage">
+                <img alt="design image">
+                <h2>Design</h2>
+                <p>We adapt the customer's corporate identity to the platform guidelines. We draw convenient and understandable interfaces.</p>
+            </div>
+            <div class="development-stages__stage">
+                <img alt="development image">
+                <h2>Development</h2>
+                <p>We create an extensible architecture, write clean and stable code. We integrate with customer technologies.</p>
+            </div>
+            <div class="development-stages__stage">
+                <img alt="testing image">
+                <h2>Testing</h2>
+                <p>We carry out functional testing and do bug fixes. We adapt the application to different phone resolutions.</p>
+            </div>
+            <div class="development-stages__stage">
+                <img alt="launching image">
+                <h2>Launching</h2>
+                <p>We design the application page and publish it in the App Store and Google Play stores.</p>
+            </div>
+            <div class="development-stages__stage">
+                <img alt="support image">
+                <h2>Support</h2>
+                <p>We monitor the stability of the application, update it for new devices and versions of iOS and Android.</p>
+            </div>
+        </div>
+        <hr>
+        <div class="team-container">
+            <div class="team-container__description">
+                <h1>Our team</h1>
+                <p>Thousand is a full-cycle digital production company with its own product analytics, design, web and mobile development.</p>
+                <div class="team-stats">
+                    <h1>28</h1>
+                    <p class="stat-name">team members</p>
+                </div>
+                <div class="team-stats">
+                    <h1>+100</h1>
+                    <p class="stat-name">projects</p>
+                </div>
+                <div class="team-stats">
+                    <h1>7 years</h1>
+                    <p class="stat-name">in IT sphere</p>
+                </div>
+                <p>All the necessary specialists - from a designer to a tester - are on our staff. We hire the best specialists in the market. It's expensive but worth it</p>
+            </div>
+            <video>
+
+            </video>
+        </div>
+        <hr>
+        <div class="book-info">
+            <h1>Get the book for free by leaving your contacts</h1>
+            <div class="book-info__send">
+                <form class="book-form" method="post">
+                    <label for="book-form__phone">Phone number</label>
+                    <input id="book-form__phone" type="tel" />
+                    <label for="book-form__name"></label>
+                    <input id="book-form__name" type="text" placeholder="Your full name" />
+                    <label for="book-form__email">email</label>
+                    <input id="book-form__email" type="email" />
+                    <input type="submit" value="Send me ebook to my email" />
+                </form>
+            </div>
+        </div>
+        <hr>
+        <div class="faq-container">
+            <h1>FAQ</h1>
+            <div class="faq-list">
+                <div class="faq-list__item">
+                    <div class="faq-question">What the cost of a mobile application?</div>
+                    <div class="faq-answer">Answer</div>
+                    <img class="faq-expand-img" alt="expand image">
+                </div>
+                <div class="faq-list__item">
+                    <div class="faq-question">Do you provide a guarantee for the mobile application?</div>
+                    <div class="faq-answer">Answer</div>
+                    <img class="faq-expand-img" alt="expand image">
+                </div>
+                <div class="faq-list__item">
+                    <div class="faq-question">How long will development take?</div>
+                    <div class="faq-answer">Answer</div>
+                    <img class="faq-expand-img" alt="expand image">
+                </div>
+                <div class="faq-list__item">
+                    <div class="faq-question">I will not tell my idea, do you guarantee confidentiality?</div>
+                    <div class="faq-answer">Answer</div>
+                    <img class="faq-expand-img" alt="expand image">
+                </div>
+            </div>
+        </div>
     </main>
     <hr>
     <footer>
-        <h3 class="h3-style">I'm footer</h3>
-        <p class="p-style">Nice to meet you</p>
-        <hr>
-        <ul>
-            <li><p class="p-style">Contacts:</p></li>
-            <li><p class="p-style">+0-000-000-00-00</p></li>
-            <li><p class="p-style">000000@yuoup.com</p></li>
-        </ul>
-        <p class="p-style">«Все права защищены»</p>
+        <div class="footer-container">
+            <div class="footer-nav">
+                <h1>IT WEBSITE</h1>
+                <div class="footer-nav__item">
+                    <img alt="contact image">
+                    <p class="footer-nav-description">Contact nums</p>
+                    <p>+7 (778) 395 90 26</p>
+                </div>
+                <div class="footer-nav__item">
+                    <img alt="post image">
+                    <p class="footer-nav-description">Post</p>
+                    <p>mail@mail.com</p>
+                </div>
+                <div class="footer-nav__item">
+                    <img alt="address image">
+                    <p class="footer-nav-description">Address</p>
+                    <p>City city, street st. 90</p>
+                </div>
+                <div class="footer-nav__item">
+                    <img alt="request image">
+                    <p class="footer-nav-description">Leave a request</p>
+                    <p>Leave a request</p>
+                </div>
+            </div>
+            <img alt="work image">
+            <p class="end-word">We work throughout world</p>
+        </div>
     </footer>
 </body>
 </html>
