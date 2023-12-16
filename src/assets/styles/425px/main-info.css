@@ -1,0 +1,101 @@
+@media(min-width: 425px) and (max-width: 768px) {
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 15px;
+    }
+
+    .main-info-container {
+        display: flex;
+        flex-direction: column;
+        margin: 10px 25px 10px;
+        justify-content: center;
+    }
+
+    .main-info {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        order: 1;
+    }
+
+    .main-info__contact {
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        box-shadow: 2px 2px 2px lightgray;
+        border-radius: 12px;
+        row-gap: 15px;
+        padding-left: 15px;
+        height: 276px;
+        flex-grow: 1;
+        order: 3;
+    }
+
+
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+    }
+
+    .contact-form__value-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contract-form__input {
+        border: 0;
+        width: 224px;
+        border-bottom: 1px solid #D0D5DD;
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+    }
+
+    .contact-form__label {
+        color: #667085;
+        font-size: 13px;
+    }
+
+    #contact-form__submit {
+        height: 40px;
+        width: 155px;
+        background-color: #2D66EE;
+        border: 0;
+        color: white;
+        font-weight: bold;
+        border-radius: 8px;
+    }
+
+    #contact-form__phone {
+        padding-left: 20px;
+        background-image: url("../../images/input-forms/kz-flag.png");
+        background-repeat: no-repeat;
+        background-size: 15px;
+        background-position-y: 8px;
+    }
+
+    .comments-container {
+        display: none;
+    }
+
+    .comments-container-mini__left, .comments-container-mini__right {
+        z-index: -1;
+        transform: rotate(-12deg) scale(200%, 200%) translateY(160px);
+    }
+
+    .comments-container-mini__left {
+        transform: translateY(360px) scale(200%, 200%) rotate(-12deg);
+        margin-left: 90px;
+    }
+
+    .comments-container-mini {
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+        height: 600px;
+        column-gap: 10px;
+    }
+}

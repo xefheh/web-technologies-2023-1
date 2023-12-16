@@ -1,0 +1,37 @@
+@media (min-width: 425px) and (max-width: 768px) {
+    .nav-menu {
+        flex-grow: 1;
+        align-items: center;
+    }
+
+    .nav-menu__header {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .nav-menu__list {
+        display: none;
+    }
+
+    .nav-menu__phones {
+        display: none;
+    }
+
+    .nav-menu__emails {
+        display: none;
+    }
+
+    .nav-menu__expand {
+        margin-left: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 25px;
+    }
+
+    .expand__rectangle {
+        background-color: #2D66EE;
+        width: 40px;
+        height: 5px;
+    }
+}
