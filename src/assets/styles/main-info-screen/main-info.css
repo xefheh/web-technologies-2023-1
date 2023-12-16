@@ -1,0 +1,85 @@
+.main-info-container {
+    display: flex;
+    margin: 120px 165px 120px;
+    height: 675px;
+}
+
+.main-info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+}
+
+.main-info__contact {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: 2px 2px 2px lightgray;
+    border-radius: 12px;
+    justify-content: center;
+    width: 750px;
+    height: 186px;
+}
+
+.contact__header {
+    margin-left: 30px;
+}
+
+.main-info__description {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form {
+    display: flex;
+    justify-content: space-around;
+}
+
+.contact-form__value-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.contract-form__input {
+    width: 180px;
+    height: 28px;
+    border: 0;
+    border-bottom: 1px solid #D0D5DD;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+}
+
+.contact-form__label {
+    color: #667085;
+    font-size: 0.7em;
+}
+
+#contact-form__submit {
+    height: 48px;
+    background-color: #2D66EE;
+    border: 0;
+    color: white;
+    font-weight: bold;
+    text-align: left;
+    padding-left: 50px;
+    border-radius: 8px;
+}
+
+#contact-form__phone {
+    padding-left: 20px;
+    background-image: url("../../images/input-forms/kz-flag.png");
+    background-repeat: no-repeat;
+    background-size: 15px;
+    background-position-y: 8px;
+}
+
+.comments-container {
+    display: flex;
+    justify-content: center;
+    column-gap: 230px;
+}
+
+.comments-container__left, .comments-container__right {
+    z-index: -1;
+    transform: rotate(-12deg) scale(340%, 340%) translateY(-15px);
+}

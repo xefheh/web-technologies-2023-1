@@ -1,0 +1,33 @@
+header {
+    position: sticky;
+    top: 30px;
+    display: flex;
+    justify-content: center;
+}
+.nav-menu__header {
+    color: #2D66EE;
+}
+
+.nav-menu {
+    width: 1500px;
+    display: flex;
+    background-color: white;
+    box-shadow: 2px 2px 2px lightgray;
+    border-radius: 12px;
+    justify-content: space-around;
+}
+
+.nav-menu__list {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+}
+
+.nav-menu__emails, .nav-menu__phones {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    color: #2D66EE;
+    column-gap: 10px;
+}
