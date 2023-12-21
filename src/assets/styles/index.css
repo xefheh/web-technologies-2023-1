@@ -4,8 +4,13 @@
 @import "footer.css";
 @import "main-info.css";
 @import "text-colors.css";
+@import "cycle-info.css";
 
 html {
     font-family: Inter, serif;
     background-color: #F2F4F7;
+}
+
+main {
+    width: 100%;
 }

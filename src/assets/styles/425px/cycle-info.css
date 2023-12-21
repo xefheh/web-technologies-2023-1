@@ -1,0 +1,13 @@
+@media (min-width: 425px) and (max-width: 768px) {
+    .cycle-info {
+        flex-direction: column;
+    }
+
+    .cycle-info__description-container {
+        margin-left: 40px;
+    }
+
+    .cycle-info__list__item {
+        margin-left: 40px;
+    }
+}
