@@ -1,0 +1,18 @@
+@keyframes moveUp {
+  0% {
+    transform: rotate(-12deg) scale(300%, 300%) translateY(600px);
+  }
+  100% {
+    transform: translateY(-1500px) translateX(-300px) rotate(-12deg) scale(300%, 300%);
+  }
+
+}
+
+@keyframes moveDown {
+  0% {
+    transform: rotate(-12deg) scale(300%, 300%) translateY(-600px);
+  }
+  100% {
+    transform: translateY(1500px) translateX(350px) rotate(-12deg) scale(300%, 300%);
+  }
+}

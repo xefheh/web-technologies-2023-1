@@ -1,0 +1,10 @@
+@include phone {
+  .cycle-info {
+    flex-direction: column;
+
+    .cycle-info__description-container {
+      margin-left: 40px;
+    }
+
+  }
+}

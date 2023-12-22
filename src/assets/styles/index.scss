@@ -1,0 +1,16 @@
+@import "abstract/_mixins.scss";
+@import "abstract/_vars.scss";
+
+@import "core/_reset.scss";
+@import "core/_animations.scss";
+@import "core/_fonts.scss";
+@import "core/_base.scss";
+
+@import "layout/_header.scss";
+@import "layout/_header-media.scss";
+@import "layout/_footer.scss";
+
+@import "sections/_main-info.scss";
+@import "sections/_main-info-media.scss";
+@import "sections/_cycle-info.scss";
+@import "sections/_cycle-info-media.scss";

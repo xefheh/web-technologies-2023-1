@@ -1,0 +1,68 @@
+.cycle-info {
+  display: flex;
+  background-color: white;
+  column-gap: 75px;
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+  .cycle-info__description-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+
+    .cycle-info__header {
+      font-weight: bold;
+      font-size: $fs-main-info-tablet;
+    }
+
+    .cycle-info__enumerations {
+      display: flex;
+      flex-direction: column;
+      row-gap: 15px;
+
+      .enumeration-header {
+        font-weight: bold;
+        font-size: $fs-header;
+      }
+
+      .enumeration {
+        font-size: $fs-s;
+        color: $secondary-color;
+      }
+    }
+  }
+
+  .cycle-info__list {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-shrink: 1;
+
+    .cycle-info__list__item {
+      display: flex;
+      align-items: center;
+      column-gap: 15px;
+      font-size: $fs-header;
+    }
+
+    .cycle-info__list__item__text:hover {
+      font-weight: bold;
+      padding-bottom: 4px;
+      border-bottom: #2D66EE solid 2px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .cycle-info__description-container {
+    margin-left: 60px;
+    width: 700px;
+
+    .cycle-info__list {
+      margin-right: 60px;
+      width: 400px;
+    }
+  }
+}

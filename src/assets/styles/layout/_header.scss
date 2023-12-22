@@ -1,0 +1,28 @@
+header {
+  top: 30px;
+  display: flex;
+  position: sticky;
+
+  .nav-menu {
+    display: flex;
+    background-color: white;
+    box-shadow: 2px 2px 2px lightgray;
+    border-radius: 12px;
+    align-items: center;
+
+    .nav-menu__header {
+      font-weight: bold;
+      color: $primary-color;
+      font-size: $fs-header;
+    }
+
+    .nav-menu__list, .nav-menu__emails, .nav-menu__phones {
+      align-items: center;
+      font-size: $fs-s;
+    }
+
+    .nav-menu__emails, .nav-menu__phones {
+      color: $primary-color;
+    }
+  }
+}

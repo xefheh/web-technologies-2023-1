@@ -1,0 +1,64 @@
+.main-info-container {
+  display: flex;
+  height: 675px;
+
+  .main-info {
+    display: flex;
+    flex-direction: column;
+
+    .main-info__description {
+      display: flex;
+      row-gap: 40px;
+      margin-bottom: 50px;
+      flex-direction: column;
+      h1 {
+        font-weight: bold;
+      }
+      .description__full-description {
+        font-size: $fs-base;
+      }
+    }
+
+    .main-info__contact {
+      display: flex;
+      background-color: white;
+      box-shadow: 2px 2px 2px lightgray;
+      border-radius: 12px;
+      justify-content: center;
+      flex-direction: column;
+      .contact__header {
+        font-weight: bold;
+        margin-bottom: 30px;
+      }
+      .contact-form {
+        display: flex;
+        justify-content: space-around;
+
+        .contact-form__value-container {
+          display: flex;
+          flex-direction: column;
+
+          .contract-form__input {
+            width: 180px;
+            height: 28px;
+            border: 0;
+            border-bottom: 1px solid #D0D5DD;
+          }
+
+          .contact-form__label {
+            color: $secondary-color;
+            font-size: $fs-xs;
+          }
+
+          #contact-form__phone {
+            padding-left: 20px;
+            background-image: url("../images/input-forms/kz-flag.png");
+            background-repeat: no-repeat;
+            background-size: 15px;
+            background-position-y: 8px;
+          }
+        }
+      }
+    }
+  }
+}
