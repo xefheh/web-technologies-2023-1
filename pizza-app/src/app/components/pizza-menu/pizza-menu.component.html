@@ -1,0 +1,21 @@
+<div class="main-container">
+  <app-pizza-base (notify)="onPizzaBaseNotify($event)"
+                  class="main-container__left-menu" />
+  <div class="main-container__right-menu">
+    <app-size-picker (notify)="onSizePickerNotify($event)" />
+    <h1 class="topping-container__header">Топпинги: </h1>
+    <div class="topping-container">
+      <div *ngFor="let topping of _toppings"
+            (click)="addOrDeleteTopping(topping)"
+            [class.topping-container__item--active]="isToppingContains(topping)"
+            class="topping-container__item">
+          <img [src]="topping.getPicturePath()"
+               [alt]="topping.getName() + 'picture'"
+              class="topping-container__item__image"/>
+          <h1 class="topping-container__item__header">{{ topping.getName() }}</h1>
+          <p class="topping-container__item__price">{{ topping.getPrice(_pizza.getSize()) + ' Рублей' }}</p>
+      </div>
+    </div>
+    <button>Потратить {{ _pizza.calculatePrice() }} рублей и потолстеть на {{ _pizza.calculateCalories() }} калорий</button>
+  </div>
+</div>

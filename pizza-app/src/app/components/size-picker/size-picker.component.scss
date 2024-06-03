@@ -1,0 +1,29 @@
+.size-picker {
+  display: flex;
+  gap: 15px;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    border: solid 2px #7a7a7a;
+    box-shadow: #aeaeae 2px 2px;
+    padding: 10px;
+    color: black;
+    width: 200px;
+    height: 40px;
+    justify-content: space-around;
+    align-items: center;
+    transition: 0.2s linear;
+
+    background: white;
+
+    &--active {
+      background: linear-gradient(60deg, rgba(255,201,0,1) 0%, rgba(255,201,0,1) 100%);
+    }
+
+    &__header {
+      font-size: 19px;
+    }
+  }
+}

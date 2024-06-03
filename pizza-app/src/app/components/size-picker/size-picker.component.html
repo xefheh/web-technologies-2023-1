@@ -1,0 +1,9 @@
+<div class="size-picker">
+  <div *ngFor="let size of _sizes; index as i"
+       (click)="setCurrentSize(i)"
+       [class.size-picker__item--active]="size===getCurrentSize()"
+       class="size-picker__item">
+      <h1 class="size-picker__item__header">{{ size.getName() }}</h1>
+  </div>
+</div>
+

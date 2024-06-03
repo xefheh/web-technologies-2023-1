@@ -1,0 +1,64 @@
+.main-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 40px 40px;
+
+  &__right-menu {
+    border: darkgray solid 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    padding: 50px;
+  }
+
+  button {
+    margin-top: 30px;
+    height: 50px;
+    width: 500px;
+    border-radius: 10px;
+    background: linear-gradient(60deg, rgba(255,201,0,1) 0%, rgba(255,201,0,1) 100%);
+    font-weight: bold;
+  }
+}
+
+.topping-container {
+  display: flex;
+  gap: 5px;
+
+  &__header {
+    align-self: center;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: -75px;
+    align-items: center;
+    border: black solid 2px;
+    padding: 0 15px;
+    border-radius: 10px;
+    width: 200px;
+    height: 250px;
+
+    &--active {
+      background: linear-gradient(60deg, rgba(255,201,0,1) 0%, rgba(255,201,0,1) 100%);
+    }
+
+    &__image {
+      width: 150px;
+      height: 150px;
+      margin: 0;
+    }
+
+    &__header {
+      margin: 0;
+    }
+
+    &__price {
+      margin: 0;
+    }
+  }
+}

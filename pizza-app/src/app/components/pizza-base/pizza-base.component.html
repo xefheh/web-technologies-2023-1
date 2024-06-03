@@ -1,0 +1,12 @@
+<div class="pizza-bases">
+  <div *ngFor="let pizzaBase of _pizzaBases; index as i"
+       (click)="setSelectedPizzaBase(i)"
+       [class.pizza-bases__item--active]="pizzaBase === _selectedPizzaBase"
+       class="pizza-bases__item">
+    <img [src]="pizzaBase.getPicturePath()"
+         [alt]="pizzaBase.getName() + ' picture'"
+         [class.pizza-bases__item__image--active]="pizzaBase === _selectedPizzaBase"
+         class="pizza-bases__item__image" />
+    <h1 class="pizza-bases__item__header">{{  pizzaBase.getName() }}</h1>
+  </div>
+</div>
