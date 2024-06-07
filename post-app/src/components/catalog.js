@@ -71,21 +71,19 @@ export class Catalog {
         window.history.pushState({}, '', url)
     }
 
-    loadItems () {
+    async loadItems () {
         try {
-            this.#getItems({ limit: this.limit, page: this.#page })
-                .then(({ items, total }) => {
-                    this.#total = total
-                    this.renderItems(items)
-                    this.renderPagination()
-        })
+            const {items, total} = await this.#getItems({ limit: this.limit, page: this.#page });
+            this.#total = total;
+            this.renderItems(items);
+            this.renderPagination();
         } catch (error) {
             console.log(error);
         }
     }
 
     renderItems (items) {
-        this.#itemsEl.innerHTML = items.map(this.#renderItem).join('')
+        items.forEach(item => this.#itemsEl.appendChild(this.#renderItem(item)));
     }
 
     renderPagination () {
