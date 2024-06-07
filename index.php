@@ -1,115 +1,77 @@
 <?php
 
-$i = 0;
-do {
-    if($i == 0) {
-        echo $i . ' - это ноль <br>';
-    } else if($i % 2 == 0) {
-        echo $i . ' - чётное число <br>';
-    } else {
-        echo $i . ' - нечётное число <br>';
-    }
-    $i++;
-} while($i<=10);
-
-
-echo '2 квест. <br>';
-
-$regions = [
-    'Московская область' => ['Москва', 'Зеленоград', 'Клин'],
-    'Ленинградская область' => ['Санкт-Петербург', 'Всеволожск', 'Павловск, Кронштадт'],
-    'Рязанская область' => ['Рязань', 'Ряяязааань', 'Крутая-Рязань']
-];
-
-foreach($regions as $region => $cities) {
-    echo $region . ':<br>';
-    echo join(', ', $cities) . '.<br>';
-}
-
-$letters = [
-    'а' => 'a',
-    'б' => 'b',
-    'в' => 'v',
-    'г' => 'g',
-    'д' => 'd',
-    'е' => 'e',
-    'ё' => 'yo',
-    'ж' => 'zsh',
-    'з' => 'z',
-    'и' => 'i',
-    'й' => 'iy',
-    'к' => 'k',
-    'л' => 'l',
-    'м' => 'm',
-    'н' => 'n',
-    'о' => 'o',
-    'п' => 'p',
-    'р' => 'r',
-    'с' => 's',
-    'т' => 't',
-    'у' => 'u',
-    'ф' => 'f',
-    'х' => 'h',
-    'ц' => 'c',
-    'ч' => 'ch',
-    'ш' => 'sh',
-    'щ' => 'sch',
-    'ъ' => 'what is this',
-    'ы' => 'bi',
-    'ь' => 'b',
-    'э' => 'ea',
-    'ю' => 'yu',
-    'я' => 'ya'
-];
-
-$phrase = 'шлакаблокуневый апельсин с планеты зацзабъян';
-function transliterat($phrase, $letters)
-{
+function buildImgGallery($imagesDirectory) {
+    if(!is_dir($imagesDirectory)) return '';
+    $directory = opendir($imagesDirectory);
     $result = '';
-    for ($i = 0; $i < strlen($phrase); $i++) {
-        $mb_symbol = mb_substr($phrase, $i, 1);
-        if(array_key_exists($mb_symbol, $letters)) {
-            $result .= $letters[$mb_symbol];
-        } else {
-            $result .= $mb_symbol;
-        }
+    while($file = readdir($directory)) {
+        if($file == '.' || $file == '..') continue;
+        $filepath = $imagesDirectory . '/' . $file;
+        $result .= '<div class="gallery__image">
+                    <a href="'.$filepath.'"
+                        target="_blank">
+                        <img src="'.$filepath.'" width="256px" height="256px" alt="тут должна была быть картиночка">   
+                    </a>
+                </div> ';
     }
     return $result;
 }
 
-echo transliterat($phrase, $letters) . '<br>';
-
-echo '4 квест. <br>';
-
-
-$menuItems = array(
-    '0.',
-    '1.',
-    '2.',
-    '3.',
-    '4.',
-    'Подменю 1' => array(
-        'Пункт 1',
-        'Пункт 2',
-        'Пункт 3'
-    )
-);
-
-echo '<ul>';
-foreach ($menuItems as $menuItem => $subMenuItems) {
-    echo '<li>';
-    if (is_array($subMenuItems)) {
-        echo '<a href="#">' . $menuItem . '</a>';
-        echo '<ul>';
-        foreach ($subMenuItems as $subMenuItem) {
-            echo '<li><a href="#">' . $subMenuItem . '</a></li>';
-        }
-        echo '</ul>';
-    } else {
-        echo '<a href="#">' . $menuItem . '</a>';
-    }
-    echo '</li>';
+function getLogsLinesCount($logFile) {
+    if(!file_exists($logFile)) return 0;
+    $file = file($logFile);
+    return count($file);
 }
-echo '</ul>';
+
+function getLastFileNumber($path)
+{
+    $dir = opendir($path);
+    $count = 0;
+    while($file = readdir($dir))
+    {
+        if($file == '.' || $file == '..' || is_dir($path . $file)) continue;
+        $count++;
+    }
+    return $count;
+}
+
+function pushLogsOrMoveToDirectory($mainLogFilename, $logsDirectory, $getDatetime) {
+    $lines = getLogsLinesCount($mainLogFilename);
+    if($lines < 10) {
+        file_put_contents($mainLogFilename, $getDatetime.PHP_EOL, FILE_APPEND);
+    } else {
+        copy($mainLogFilename, $logsDirectory.'/log'.getLastFileNumber($logsDirectory).'.txt');
+        unlink($mainLogFilename);
+        file_put_contents('log.txt', $getDatetime.PHP_EOL,FILE_APPEND);
+    }
+}
+
+$imagesDirectory = './images';
+$mainLogFilename = 'log.txt';
+$logsDirectory = './logs';
+$getDatetime = date('Y-m-d H:i:s');
+
+pushLogsOrMoveToDirectory($mainLogFilename, $logsDirectory, $getDatetime);
+
 
 ?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Загрузить изображение</h1>
+    <form id="upload-form" action="upload.php" method="post" enctype="multipart/form-data">
+        <input type="file" name="image">
+        <input type="submit" value="Загрузить">
+    </form>
+    <div class="gallery">
+        <?php echo buildImgGallery($imagesDirectory); ?>
+    </div>
+</body>
+</html>
