@@ -1,84 +1,115 @@
 <?php
-echo ' 1 квест. <br>';
-$a = 3;
-$b = 5;
 
-if($a < 0 && $b < 0) {
-    echo $a * $b;  
-} else if ($a >= 0 && $b >= 0) {
-    echo $a * $b;
-} else {
-    echo $a + $b;
-}
-
-echo '<br>';
-echo ' 2 квест. <br>';
-
-
-$a = 13;
-switch ($a) {
-    case 0: echo 0 . '<br>';
-    case 1: echo 1 . '<br>';
-    case 2: echo 2 . '<br>';
-    case 3: echo 3 . '<br>';
-    case 4: echo 4 . '<br>';
-    case 5: echo 5 . '<br>';
-    case 6: echo 6 . '<br>';
-    case 7: echo 7 . '<br>';
-    case 8: echo 8 . '<br>';
-    case 9: echo 9 . '<br>';
-    case 10: echo 10 . '<br>';
-    case 11: echo 11 . '<br>';
-    case 12: echo 12 . '<br>';
-    case 13: echo 13 . '<br>';
-    case 14: echo 14 . '<br>';
-    case 15:
-        echo 15 . '<br>';
-        break;
-}
-
-echo '<br>';
-
-echo ' 3 квест. <br>';
-
-function add($a, $b) {
-    return $a + $b;
-}
-
-function multiply($a, $b) {
-    return $a * $b;
-}
-
-function divide($a, $b) {
-    return $a / $b;
-}
-
-function substract($a, $b) {
-    return $a - $b;
-}
-
-echo ' 4 квест. <br>';
-
-function mathOperation($arg1, $arg2, $operation) {
-    switch ($operation) {
-        case 'сложение':
-            return $arg1 + $arg2;
-        case 'вычитание':
-            return $arg1 - $arg2;
-        case 'умножение':
-            return $arg1 * $arg2;
-        case 'деление':
-            return $arg1 / $arg2;
-        default:
-            return 'капец';
+$i = 0;
+do {
+    if($i == 0) {
+        echo $i . ' - это ноль <br>';
+    } else if($i % 2 == 0) {
+        echo $i . ' - чётное число <br>';
+    } else {
+        echo $i . ' - нечётное число <br>';
     }
+    $i++;
+} while($i<=10);
+
+
+echo '2 квест. <br>';
+
+$regions = [
+    'Московская область' => ['Москва', 'Зеленоград', 'Клин'],
+    'Ленинградская область' => ['Санкт-Петербург', 'Всеволожск', 'Павловск, Кронштадт'],
+    'Рязанская область' => ['Рязань', 'Ряяязааань', 'Крутая-Рязань']
+];
+
+foreach($regions as $region => $cities) {
+    echo $region . ':<br>';
+    echo join(', ', $cities) . '.<br>';
 }
 
-echo ' 6 квест. <br>';
-function power($a, $b) {
-    if($b <= 0) return 1;
-    return $a * power($a, --$b);
+$letters = [
+    'а' => 'a',
+    'б' => 'b',
+    'в' => 'v',
+    'г' => 'g',
+    'д' => 'd',
+    'е' => 'e',
+    'ё' => 'yo',
+    'ж' => 'zsh',
+    'з' => 'z',
+    'и' => 'i',
+    'й' => 'iy',
+    'к' => 'k',
+    'л' => 'l',
+    'м' => 'm',
+    'н' => 'n',
+    'о' => 'o',
+    'п' => 'p',
+    'р' => 'r',
+    'с' => 's',
+    'т' => 't',
+    'у' => 'u',
+    'ф' => 'f',
+    'х' => 'h',
+    'ц' => 'c',
+    'ч' => 'ch',
+    'ш' => 'sh',
+    'щ' => 'sch',
+    'ъ' => 'what is this',
+    'ы' => 'bi',
+    'ь' => 'b',
+    'э' => 'ea',
+    'ю' => 'yu',
+    'я' => 'ya'
+];
+
+$phrase = 'шлакаблокуневый апельсин с планеты зацзабъян';
+function transliterat($phrase, $letters)
+{
+    $result = '';
+    for ($i = 0; $i < strlen($phrase); $i++) {
+        $mb_symbol = mb_substr($phrase, $i, 1);
+        if(array_key_exists($mb_symbol, $letters)) {
+            $result .= $letters[$mb_symbol];
+        } else {
+            $result .= $mb_symbol;
+        }
+    }
+    return $result;
 }
 
-echo power(5, 3);
+echo transliterat($phrase, $letters) . '<br>';
+
+echo '4 квест. <br>';
+
+
+$menuItems = array(
+    '0.',
+    '1.',
+    '2.',
+    '3.',
+    '4.',
+    'Подменю 1' => array(
+        'Пункт 1',
+        'Пункт 2',
+        'Пункт 3'
+    )
+);
+
+echo '<ul>';
+foreach ($menuItems as $menuItem => $subMenuItems) {
+    echo '<li>';
+    if (is_array($subMenuItems)) {
+        echo '<a href="#">' . $menuItem . '</a>';
+        echo '<ul>';
+        foreach ($subMenuItems as $subMenuItem) {
+            echo '<li><a href="#">' . $subMenuItem . '</a></li>';
+        }
+        echo '</ul>';
+    } else {
+        echo '<a href="#">' . $menuItem . '</a>';
+    }
+    echo '</li>';
+}
+echo '</ul>';
+
 ?>
