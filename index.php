@@ -1,77 +1,66 @@
 <?php
-
-function buildImgGallery($imagesDirectory) {
-    if(!is_dir($imagesDirectory)) return '';
-    $directory = opendir($imagesDirectory);
-    $result = '';
-    while($file = readdir($directory)) {
-        if($file == '.' || $file == '..') continue;
-        $filepath = $imagesDirectory . '/' . $file;
-        $result .= '<div class="gallery__image">
-                    <a href="'.$filepath.'"
-                        target="_blank">
-                        <img src="'.$filepath.'" width="256px" height="256px" alt="тут должна была быть картиночка">   
-                    </a>
-                </div> ';
+    try {
+        $pdo = new PDO('sqlite:db.db');
+    } catch(PDOException $e) {
+        echo $e->getMessage();
     }
-    return $result;
-}
 
-function getLogsLinesCount($logFile) {
-    if(!file_exists($logFile)) return 0;
-    $file = file($logFile);
-    return count($file);
-}
-
-function getLastFileNumber($path)
-{
-    $dir = opendir($path);
-    $count = 0;
-    while($file = readdir($dir))
+    function isHasChildren($parentId)
     {
-        if($file == '.' || $file == '..' || is_dir($path . $file)) continue;
-        $count++;
+        global $pdo;
+        $query = $pdo->prepare("SELECT COUNT(*) FROM Item WHERE parent_id = :parent_id");
+        $query->bindParam(':parent_id', $parentId, PDO::PARAM_INT);
+        $query->execute();
+        $count = $query->fetchColumn();
+        return $count > 0;
     }
-    return $count;
-}
+    
+    function buildMenuRecursive($parentId = null) {
+        global $pdo;
+        $outputResult = '';
+        
+        if($parentId == null) {
+            $query = $pdo->prepare('SELECT * FROM Item WHERE parent_id is NULL');
+        } else {
+            $query = $pdo->prepare('SELECT * FROM Item WHERE parent_id = :parent_id');
+            $query->bindParam(':parent_id', $parentId, PDO::PARAM_INT);
+        }
+        
+        $query->execute();
+        $results = $query->fetchAll();
+        
+        foreach($results as $result) {
+            $hasChildren = isHasChildren($result['id']);
 
-function pushLogsOrMoveToDirectory($mainLogFilename, $logsDirectory, $getDatetime) {
-    $lines = getLogsLinesCount($mainLogFilename);
-    if($lines < 10) {
-        file_put_contents($mainLogFilename, $getDatetime.PHP_EOL, FILE_APPEND);
-    } else {
-        copy($mainLogFilename, $logsDirectory.'/log'.getLastFileNumber($logsDirectory).'.txt');
-        unlink($mainLogFilename);
-        file_put_contents('log.txt', $getDatetime.PHP_EOL,FILE_APPEND);
+            $outputResult .=  '<div class="list-item list-item_open" data-parent>'.
+                '<div class="list-item__inner">';
+
+            if ($hasChildren) {
+                $outputResult .= '<img class="list-item__arrow" src="img/chevron-down.png" alt="chevron-down" data-open>';
+            } else {
+                $outputResult .= '<img class="list-item__arrow" src="img/chevron-down.png" alt="chevron-down" data-open style="visibility: hidden;"> ';
+            }
+
+            $outputResult .= '<img class="list-item__folder" src="img/folder.png" alt="folder">';
+            $outputResult .= '<span>' . $result['name'] . '</span>
+                </div><div class="list-item__items">';
+            $outputResult .= buildMenuRecursive($result['id']);
+            $outputResult .= '</div></div>';
+        }
+        return $outputResult;
     }
-}
-
-$imagesDirectory = './images';
-$mainLogFilename = 'log.txt';
-$logsDirectory = './logs';
-$getDatetime = date('Y-m-d H:i:s');
-
-pushLogsOrMoveToDirectory($mainLogFilename, $logsDirectory, $getDatetime);
-
-
 ?>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>List Item</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Загрузить изображение</h1>
-    <form id="upload-form" action="upload.php" method="post" enctype="multipart/form-data">
-        <input type="file" name="image">
-        <input type="submit" value="Загрузить">
-    </form>
-    <div class="gallery">
-        <?php echo buildImgGallery($imagesDirectory); ?>
-    </div>
+<div class="list-items" id="list-items">
+    <?php echo buildMenuRecursive(); ?>
+</div>
+<script type="module" src="script.js"></script>
 </body>
 </html>
