@@ -18,7 +18,19 @@
 </header>
 
 <main class="main">
-
+    <form id="todo-form" class="form">
+        <label class="text-field">
+            <input
+                    id="description"
+                    type="text"
+                    class="text-field__input"
+                    name="description"
+                    placeholder="description"
+            >
+            <span class="text-field__error"></span>
+        </label>
+        <button type="submit" class="button">Сохранить</button>
+    </form>
 </main>
 
 <div class="loader-wrapper" data-loading>
@@ -29,6 +41,6 @@
     >
 </div>
 
-<script src="src/pages/todos.js" type="module"></script>
+<script src="src/pages/todo.js" type="module"></script>
 </body>
 </html>

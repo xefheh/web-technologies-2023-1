@@ -12,6 +12,15 @@ const location = {
     },
     user: () => {
         window.location.href = url.origin + '/user.html'
+    },
+    createTodo: () => {
+        window.location.href = url.origin + '/todo.html'
+    },
+    updateTodo: (id) => {
+        window.location.href = url.origin + '/todo.html' + `?id=${id}`;
+    },
+    todos: () => {
+        window.location.href = url.origin + '/todos.html'
     }
 }
 

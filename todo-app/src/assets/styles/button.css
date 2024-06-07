@@ -1,0 +1,22 @@
+.button {
+    padding: 8px;
+}
+
+#create-todo-btn {
+    background-color: springgreen;
+    width: 300px;
+    height: 70px;
+    font-size: 16px;
+    font-weight: bold;
+    border: 2px solid black;
+    border-radius: 15px;
+    transition: 0.15s linear;
+    margin-top: -100px;
+}
+
+#create-todo-btn:hover {
+    background-color: lawngreen;
+    height: 75px;
+    width: 305px;
+    transition: 0.15s linear;
+}
